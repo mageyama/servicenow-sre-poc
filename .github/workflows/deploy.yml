@@ -28,17 +28,10 @@ jobs:
 
       - uses: google-github-actions/setup-gcloud@v2
 
-      - name: Build with Cloud Build
-        run: |
-          gcloud builds submit \
-            --region "${{ env.GCP_REGION }}" \
-            --tag "${{ env.GCP_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/${{ env.SERVICE_NAME }}/${{ env.SERVICE_NAME }}" \
-            --project "${{ env.GCP_PROJECT_ID }}"
-
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy "${{ env.SERVICE_NAME }}" \
-            --image "${{ env.GCP_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/${{ env.SERVICE_NAME }}/${{ env.SERVICE_NAME }}" \
+            --source . \
             --region "${{ env.GCP_REGION }}" \
             --project "${{ env.GCP_PROJECT_ID }}" \
             --platform managed \
