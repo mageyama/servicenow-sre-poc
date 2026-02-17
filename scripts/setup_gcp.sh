@@ -89,6 +89,8 @@ ROLES=(
   "roles/run.admin"                      # Cloud Run 管理
   "roles/cloudbuild.builds.editor"       # Cloud Build 実行
   "roles/iam.serviceAccountUser"         # SA としてデプロイするために必要
+  "roles/serviceusage.serviceUsageConsumer" # Cloud Build バケットアクセスに必要
+  "roles/storage.admin"                  # Cloud Build ソースアップロードに必要
 )
 
 for ROLE in "${ROLES[@]}"; do
