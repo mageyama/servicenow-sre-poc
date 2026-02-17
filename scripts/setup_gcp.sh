@@ -85,12 +85,11 @@ echo ""
 echo ">>> Granting IAM roles to ${SA_EMAIL}..."
 
 ROLES=(
-  "roles/artifactregistry.writer"       # Artifact Registry 書き込み
-  "roles/run.admin"                      # Cloud Run 管理
-  "roles/cloudbuild.builds.editor"       # Cloud Build 実行
-  "roles/iam.serviceAccountUser"         # SA としてデプロイするために必要
-  "roles/serviceusage.serviceUsageConsumer" # Cloud Build バケットアクセスに必要
-  "roles/storage.admin"                  # Cloud Build ソースアップロードに必要
+  "roles/artifactregistry.writer"          # Artifact Registry 書き込み
+  "roles/cloudbuild.builds.editor"         # Cloud Build 実行
+  "roles/iam.serviceAccountUser"           # SA としてデプロイするために必要
+  "roles/run.admin"                        # Cloud Run 管理
+  "roles/serviceusage.serviceUsageConsumer" # GCP API 利用に必要
 )
 
 for ROLE in "${ROLES[@]}"; do
