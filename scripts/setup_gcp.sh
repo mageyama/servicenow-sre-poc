@@ -90,6 +90,7 @@ ROLES=(
   "roles/iam.serviceAccountUser"           # SA としてデプロイするために必要
   "roles/run.admin"                        # Cloud Run 管理
   "roles/serviceusage.serviceUsageConsumer" # GCP API 利用に必要
+  "roles/storage.admin"                    # ソースアップロード用バケット操作に必要
 )
 
 for ROLE in "${ROLES[@]}"; do
